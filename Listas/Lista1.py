@@ -85,7 +85,7 @@ def q9():
     elif q=="3":
         print("Você viveu {} horas.".format(aeh))
     elif q=="4":
-        print("Você viveu {} minutos.".format(aem))
+        print("Você viveu {} minutos.".format(aemin))
     else:
         print("Insira um número válido!")
 
@@ -109,3 +109,5 @@ def q11():
         print("Os dois têm o mesmo preço!")
     else:
         print("É mais vantajoso abastecer com álcool!")
+
+q9()

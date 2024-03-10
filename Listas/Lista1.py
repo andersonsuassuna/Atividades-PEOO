@@ -109,5 +109,3 @@ def q11():
         print("Os dois têm o mesmo preço!")
     else:
         print("É mais vantajoso abastecer com álcool!")
-
-q9()

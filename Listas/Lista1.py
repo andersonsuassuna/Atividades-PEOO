@@ -102,15 +102,3 @@ def q11():
         print("É mais vantajoso abastecer com gasolina!")
     else:
         print("É mais vantajoso abastecer com álcool!")
-
-q1()
-q2()
-q3()
-q4()
-q5()
-q6()
-q7()
-q8()
-q9()
-q10()
-q11()

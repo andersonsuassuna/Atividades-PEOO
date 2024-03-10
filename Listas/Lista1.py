@@ -80,16 +80,21 @@ def q9():
     q=input("Gostaria de saber quantos meses (1), dias (2), horas (3) ou minutos (4)? ")
     if q=="1":
         print("Você viveu {} meses.".format(aem))
-    if q=="2":
+    elif q=="2":
         print("Você viveu {} dias.".format(aed))
-    if q=="3":
+    elif q=="3":
         print("Você viveu {} horas.".format(aeh))
-    if q=="4":
+    elif q=="4":
         print("Você viveu {} minutos.".format(aem))
+    else:
+        print("Insira um número válido!")
 
 def q10():
     cc=float(input("Consumo do carro em litros/km: "))
     d= float(input("Distância em km: "))
+    if cc<0 or d<0:
+        print("Não são permitidos valores negativos!")
+        exit()
     print("Litros que serão gastos: {}".format(cc*d))
 
 def q11():
@@ -100,5 +105,7 @@ def q11():
         exit()
     if g<a:
         print("É mais vantajoso abastecer com gasolina!")
+    elif g==a:
+        print("Os dois têm o mesmo preço!")
     else:
         print("É mais vantajoso abastecer com álcool!")

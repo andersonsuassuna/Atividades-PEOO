@@ -10,7 +10,7 @@ while pessoas>0:
     vt=vt-vn
     if vt<0:
         print("O valor foi além do suportado!")
-        exit()
+        continue # Usar no lugar do exit(), pois o continue só volta para o começo do código.
     print(f"Restante: {vt}")
     pessoas=pessoas-1 # subtraindo
 print("Obrigado!")

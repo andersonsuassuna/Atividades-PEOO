@@ -58,4 +58,3 @@ def q4():
         else:
             print(f"Aluno {n+1} reprovado!")
         n=n+1
-q4()

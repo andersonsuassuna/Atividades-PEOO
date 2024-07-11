@@ -32,7 +32,7 @@ def q2():
         salariofinal=salariofinal-2000
     print(f"Seu salário final é de {salariofinal}")
 
-def q3():
+def q3(): #tem resultado para todas as possibilidades
     idade=int(input("Sua idade: "))
     tempo=int(input("Tempo de contribuição em anos: "))
     if idade>=65 and tempo >=30:
@@ -44,7 +44,7 @@ def q3():
     if idade<65 and tempo <30:
         print(f"Ainda faltam {65-idade} anos de idade e {30-tempo} anos de serviço para você poder se aposentar!") 
 
-def q4():
+def q4(): #tem resultado para todas as possibilidades
     salario=float(input("Salário: "))
     emprestimo=float(input("Empréstimo: "))
     parcelas=int(input("Parcelas: "))
@@ -56,4 +56,20 @@ def q4():
         print("Empréstimo reprovado! O valor de uma parcela é maior que 30% do salário!")
     if emprestimo>salario*10 and emprestimo/parcelas>salario*3/10:
         print("Empréstimo reprovado! O valor do empréstimo excede 10x o valor do salário e o valor de uma parcela é maior que 30% do salário!")
-q4()
+
+def q5():
+    data=input("Data (xx/xx/xxxx): ")
+    if 0<(int(data[0:2]))<=31:
+        if 0<(int(data[3:5]))<=12:
+            if 0<(int(data[6:10])):
+                print("Data Válida!")
+            else:
+                print("Ano inválido!")
+        else:
+            print("Mês inválido!")
+    else:
+        print("Dia inválido!")
+    print(data[0:2])
+    print(data[3:5])
+    print(data[6:10])
+q5()

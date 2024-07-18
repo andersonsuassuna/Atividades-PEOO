@@ -13,6 +13,7 @@ def q8():
     else:
         print(f"O número {n} não é perfeito!")
     print(divisores)
+q8()
 
 def q9():
     n=input("Número: ")
@@ -22,6 +23,7 @@ def q9():
         algarismos.append(int(n[casa]))
         casa=casa+1
     print(f"A soma dos dígitos de {n} é {sum(algarismos)}!")
+q9()
 
 def q10():
     n=int(input("Número: "))
@@ -29,3 +31,4 @@ def q10():
         print(f"{n} é um quadrado perfeito!")
     else:
         print(f"{n} não é um quadrado perfeito!")
+q10()

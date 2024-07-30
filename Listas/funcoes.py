@@ -31,12 +31,12 @@ def q3():
             contador+=1
         return(somafinal)
 
-    def mostrar(i):
-        for a,b in i.items(): # essa função items() serve para pegar o valor respectivo de cada objeto, no caso do nome, idade e curso, né?
-            print(f"{a}: {b}.")
+    def mostrar(**dados):
+        for chave, valor in dados.items(): # essa função items() serve para pegar o valor respectivo de cada objeto, no caso do nome, idade e curso, né?
+            print(f"{chave}: {valor}.")
 
     numeros=[1,2,3,4,5,6,7,8,9]
     print(soma(numeros))
 
-    dados={"Nome":"Anderson", "Idade":"16 (vou fazer 17 dia 01/08 ^^)", "Curso":"Informática"}
-    mostrar(dados)
+    mostrar(Nome="Anderson", Idade="16 (vou fazer 17 dia 01/08 ^^)", Curso="Informática", Turma="Info") #isso é um dicionado. Ou seja, tem "chave:valor"
+q3()

@@ -69,7 +69,3 @@ def q5():
             print("Mês inválido!")
     else:
         print("Dia inválido!")
-    print(data[0:2])
-    print(data[3:5])
-    print(data[6:10])
-q5()

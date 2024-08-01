@@ -2,7 +2,7 @@ def q6():
     n=int(input("Número: "))
     numerodedivisores=0
     divisor=1
-    for i in range(n):
+    for i in range(n): # testa todos os divisores para ver se o resto é 0
         if n%divisor==0:
             numerodedivisores=numerodedivisores+1
         divisor=divisor+1
@@ -20,7 +20,7 @@ def q8():
     n=int(input("Número: "))
     divisores=[]
     divisor=0
-    for i in range(n):
+    for i in range(n): # igual a q6, mas impedindo a divsão n/n, além de guardar o valor dos divisores
         divisor=divisor+1
         if n==divisor:
             break
@@ -43,8 +43,7 @@ def q9():
 
 def q10():
     n=int(input("Número: "))
-    if (n**(1/2)).is_integer():
+    if (n**(1/2)).is_integer(): # checa se é inteiro
         print(f"{n} é um quadrado perfeito!")
     else:
         print(f"{n} não é um quadrado perfeito!")
-q10()

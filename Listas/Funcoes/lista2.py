@@ -10,7 +10,7 @@ def q1():
     print(presente(numeros, 6))
 
 def q2():
-    listadenotas=[{"Anderson":10}, {"Inácio",9}, {"Pâmela",8}]
+    listadenotas=[{"Anderson":10}, {"Inácio":9}, {"Pâmela":8}]
     def mostrarnotas(lista,indice):
-            return(f"{listadenotas[indice]}")
-    print(mostrarnotas(listadenotas,0))
+    mostrarnotas(listadenotas,0)
+q2()

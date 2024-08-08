@@ -12,5 +12,6 @@ def q1():
 def q2():
     listadenotas=[{"Anderson":10}, {"Inácio":9}, {"Pâmela":8}]
     def mostrarnotas(lista,indice):
+        return(f"{lista[indice]}")
     mostrarnotas(listadenotas,0)
 q2()

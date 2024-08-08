@@ -57,4 +57,3 @@ def q7():
                 nota+=1
         todos[matricula]=nota
     print(todos)
-q7()

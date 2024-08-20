@@ -48,7 +48,7 @@ def q7():
     gabaritodoaluno=[]
     todos={}
     nota=0
-    for i in range(15):
+    for i in range(2):
         nota=0
         matricula=input("Matrícula: ")
         for i in range(10):
@@ -57,3 +57,4 @@ def q7():
                 nota+=1
         todos[matricula]=nota
     print(todos)
+q7()

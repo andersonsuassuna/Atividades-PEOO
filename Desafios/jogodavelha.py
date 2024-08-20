@@ -1,10 +1,11 @@
-jogo=[[0,0,0],
-      [0,0,0],
-      [0,0,0]]
+jogo=[
+    [0,0,0],
+    [0,0,0],
+    [0,0,0]
+]
 import itertools as it
 
 def check(game):
-    contador=0
     for i in range(1):
         if 1==game[i][i]==game[i][i+1]==game[i][i+2]:
             print("Jogador 1 venceu!")
@@ -30,12 +31,15 @@ def check(game):
         if 2==game[0][2]==game[1][1]==game[2][0]:
             print("Jogador 2 venceu!")
             exit()
+        if 0!=game[0][0] and 0!=game[0][1] and 0!=game[0][2] and 0!=game[1][0] and 0!=game[1][1] and 0!=game[1][2] and 0!=game[2][0] and 0!=game[2][1] and 0!=game[2][2]:
+            print("Deu velha!")
+            exit()
     print(*game, sep="\n")
 
 def player1(game):
     print("Jogador 1")
-    linha=int(input("Linha: "))
-    coluna=int(input("Coluna: "))
+    linha=int(input("Linha: "))-1
+    coluna=int(input("Coluna: "))-1
     if game[linha][coluna]==0:
         game[linha][coluna]=1
     else:
@@ -44,8 +48,8 @@ def player1(game):
 
 def player2(game):
     print("Jogador 2")
-    linha=int(input("Linha: "))
-    coluna=int(input("Coluna: "))
+    linha=int(input("Linha: "))-1
+    coluna=int(input("Coluna: "))-1
     if game[linha][coluna]==0:
         game[linha][coluna]=2
     else:

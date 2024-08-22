@@ -46,4 +46,16 @@ def q3():
     print(borda(matriz,1))
 
 def q4():
-    
+    matriz=[
+        [1,2,3],
+        [4,5,6],
+        [7,8,9]
+    ]
+    x=int(input("Número: "))
+    def presente(m,n):
+        for i in range(len(m)):
+            for j in range(len(m[0])):
+                if m[i][j]==n:
+                    return(True)
+        return(False)
+    print(presente(matriz,x))

@@ -5,6 +5,7 @@ def q1():
     ]
     def transposta(matriz):
         return [[matriz[i][j] for i in range(len(matriz[j]))]for j in range(len(matriz[0]))]
+    print(transposta(matriz))
 
 def q2():
     matriz=[

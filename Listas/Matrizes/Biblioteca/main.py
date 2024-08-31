@@ -1,3 +1,7 @@
-from lib import soma
-
-print(soma(2,3))
+import lib
+estoque=[
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+]
+lib.mostrar(estoque)

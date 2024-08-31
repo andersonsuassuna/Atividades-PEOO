@@ -8,7 +8,7 @@ def q1():
     print(transposta(matriz))
 
 def q2():
-    matriz=[
+    matriz=[ 
         [1,0],
         [0,1]
     ]

@@ -1,6 +1,5 @@
 from lib import *
 from tkinter import *
-
 janela=Tk()
 janela.title("Biblioteca")
 
@@ -15,5 +14,11 @@ addimg=PhotoImage(file=r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Ativida
 addimgmenor=addimg.subsample(4,4) # diminui tamanho da imagem
 addlivro=Button(janela, image=addimgmenor, command=adicionar)
 addlivro.grid(row=0, column=0)
+
+# Botão de pesquisas
+lupaimg=PhotoImage(file=r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\img\16492.png")
+lupaimgmenor=lupaimg.subsample(4,4)
+botaobuscar=Button(janela,image=lupaimgmenor,command=janeladebuscas)
+botaobuscar.grid(row=0,column=2)
 
 janela.mainloop() # Mainloop

@@ -51,4 +51,29 @@ def adicionar(): # Adiciona um novo livro com seus dados fornecidos por Entries
         mostrar("Livro adicionado!", janelaadd,3,0)])
     salvar.grid(row=3,column=1)
     janelaadd.mainloop()
+
+def percorrermatriz(coluna,busca,a):
+    x=[]
+    for i in range(len(a)):
+        if busca==a[i][coluna]:
+            x.append(a[coluna])
+    return(x)
+
+def pesquisatitulo():
+    pesquisar=Tk()
     
+    titulo=Entry(pesquisar)
+    buscar=Button(pesquisar,text="Buscar título",command=lambda: mostrarbiblioteca())
+    buscar.grid(row=0, column=0)
+    
+    pesquisar.mainloop()
+
+def janeladebuscas():
+    buscasjanela=Tk()
+    
+    tituloimg=PhotoImage(file=r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\img\pngtree-notebook-icon-png-image_8993869.png")
+    tituloimgmenor=tituloimg.subsample(4,4)
+    titulobotao=Button(buscasjanela,image=tituloimgmenor,command=pesquisatitulo)
+    titulobotao.grid(row=1,column=1)
+    
+    buscasjanela.mainloop()

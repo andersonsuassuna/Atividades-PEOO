@@ -1,14 +1,19 @@
 from tkinter import *
-biblioteca=[
-    ["O Pequeno Príncipe", "Antoine de Saint-Exupéry", "1943"],
-    ["Romeu e Julieta", "William Shakespeare", "1597"]
-]
+import csv
+
+with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8') as biblioteca:
+    leitor_csv=csv.reader(biblioteca)
 
 def mostrar(texto,j,r,c): # Mostrar texto em determinado grid
     label=Label(j,text=texto)
     label.grid(row=r,column=c)
 
 def mostrarbiblioteca(): # Mostra a biblioteca inteira em uma nova janela
+    with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8') as biblioteca:
+        leitor_csv=csv.reader(biblioteca)
+        bib=[]
+        for i in leitor_csv:
+            bib.append(i)
     novajanela=Tk()
     novajanela.title("Biblioteca")
     
@@ -21,11 +26,16 @@ def mostrarbiblioteca(): # Mostra a biblioteca inteira em uma nova janela
     datas=Label(novajanela,text="Ano de publicação")
     datas.grid(row=0, column=2)
     
-    for i in range(len(biblioteca)): # Coloca todos os dados dos livros em linhas e colunas da nova janela
+    for i in range(len(bib)): # Coloca todos os dados dos livros em linhas e colunas da nova janela
         for j in range(3):
-            label=Label(novajanela,text=biblioteca[i][j])
+            label=Label(novajanela,text=bib[i][j])
             label.grid(row=i+1, column=j)
     novajanela.mainloop()
+
+def escrevercsv(texto):
+    with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", "a", newline='\n') as biblioteca:
+        escritor=csv.writer(biblioteca)
+        escritor.writerow(texto)
 
 def adicionar(): # Adiciona um novo livro com seus dados fornecidos por Entries
     janelaadd=Tk()
@@ -45,9 +55,10 @@ def adicionar(): # Adiciona um novo livro com seus dados fornecidos por Entries
     datainput.grid(row=2,column=1)
     data.grid(row=2,column=0)
     
+    
     # Esse botão executa dois comandos: um para adicionar o livro na matriz e outro para mostrar na tela que o livro foi adicionado
     salvar=Button(janelaadd,text="Adicionar Livro", command=lambda: 
-        [biblioteca.append([tituloinput.get(), autorinput.get(), datainput.get()]),
+        [escrevercsv([tituloinput.get(), autorinput.get(), datainput.get()]),
         mostrar("Livro adicionado!", janelaadd,3,0)])
     salvar.grid(row=3,column=1)
     janelaadd.mainloop()
@@ -95,9 +106,14 @@ def janeladebuscas(): # Serve para o usuário escolher por qual valor (título, 
     buscasjanela.mainloop()
 
 def apagar(busca):
-    for i in range(len(biblioteca)):
-        if busca==biblioteca[i][0]:
-            biblioteca.remove(biblioteca[i])
+    with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8') as biblioteca:
+        leitor_csv=csv.reader(biblioteca)
+        bib=[]
+        for i in leitor_csv:
+            bib.append(i)
+    for i in range(len(bib)):
+        if busca==bib[i][0]:
+            biblioteca.drop(i)
             break
 
 def deletar():

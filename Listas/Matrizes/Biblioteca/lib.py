@@ -1,7 +1,7 @@
 from tkinter import *
 biblioteca=[
-    ["O Pequeno Príncipe", "Antoine de Saint-Exupéry", 1943],
-    ["Romeu e Julieta", "William Shakespeare", 1597]
+    ["O Pequeno Príncipe", "Antoine de Saint-Exupéry", "1943"],
+    ["Romeu e Julieta", "William Shakespeare", "1597"]
 ]
 
 def mostrar(texto,j,r,c): # Mostrar texto em determinado grid
@@ -52,28 +52,65 @@ def adicionar(): # Adiciona um novo livro com seus dados fornecidos por Entries
     salvar.grid(row=3,column=1)
     janelaadd.mainloop()
 
-def percorrermatriz(coluna,busca,a):
+def percorrermatriz(coluna,busca): # Anda por toda a matriz conferindo se a busca corresponde a algum item da biblioteca
     x=[]
-    for i in range(len(a)):
-        if busca==a[i][coluna]:
-            x.append(a[coluna])
+    for i in range(len(biblioteca)):
+        if busca==biblioteca[i][coluna]:
+            x.append(biblioteca[i])
     return(x)
 
-def pesquisatitulo():
+def pesquisa(coluna,busca): # Cria uma janela que mostra os resultados da busca
     pesquisar=Tk()
     
-    titulo=Entry(pesquisar)
-    buscar=Button(pesquisar,text="Buscar título",command=lambda: mostrarbiblioteca())
-    buscar.grid(row=0, column=0)
+    titulos=Label(pesquisar,text="Título")
+    titulos.grid(row=0, column=0)
     
+    autores=Label(pesquisar,text="Autor")
+    autores.grid(row=0, column=1)
+    
+    datas=Label(pesquisar,text="Ano de publicação")
+    datas.grid(row=0, column=2)
+    
+    for i in range(len(percorrermatriz(coluna,busca))):
+        for j in range(3):
+            label=Label(pesquisar,text=percorrermatriz(coluna,busca)[i][j])
+            label.grid(row=i+1, column=j)
     pesquisar.mainloop()
 
-def janeladebuscas():
+def janeladebuscas(): # Serve para o usuário escolher por qual valor (título, autor, data) ele vai buscar
     buscasjanela=Tk()
     
-    tituloimg=PhotoImage(file=r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\img\pngtree-notebook-icon-png-image_8993869.png")
-    tituloimgmenor=tituloimg.subsample(4,4)
-    titulobotao=Button(buscasjanela,image=tituloimgmenor,command=pesquisatitulo)
-    titulobotao.grid(row=1,column=1)
+    busca=Entry(buscasjanela)
+    busca.grid(row=0,column=1)
+    
+    titulobotao=Button(buscasjanela,text="Título",command=lambda: pesquisa(0,busca.get()))
+    titulobotao.grid(row=1,column=0)
+    
+    autorbotao=Button(buscasjanela,text="Autor",command=lambda: pesquisa(1,busca.get()))
+    autorbotao.grid(row=1,column=1)
+    
+    databotao=Button(buscasjanela,text="Ano de Publicação",command=lambda: pesquisa(2,busca.get()))
+    databotao.grid(row=1,column=2)
     
     buscasjanela.mainloop()
+
+def apagar(busca):
+    for i in range(len(biblioteca)):
+        if busca==biblioteca[i][0]:
+            biblioteca.remove(biblioteca[i])
+            break
+
+def deletar():
+    remover=Tk()
+    
+    digite=Label(remover,text="Título do livro: ")
+    digite.grid(row=0,column=0)
+    
+    escreva=Entry(remover)
+    escreva.grid(row=0,column=1)
+    
+    botaodeletar=Button(remover,text="Deletar livro",command=lambda: 
+        [apagar(escreva.get()), 
+        mostrar("Livro deletado!",remover,1,0)])
+    botaodeletar.grid(row=1,column=1)
+    remover.mainloop

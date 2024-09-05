@@ -1,5 +1,6 @@
 from lib import *
 from tkinter import *
+from tkinter import ttk
 janela=Tk()
 janela.title("Biblioteca")
 
@@ -19,6 +20,12 @@ addlivro.grid(row=0, column=0)
 lupaimg=PhotoImage(file=r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\img\16492.png")
 lupaimgmenor=lupaimg.subsample(4,4)
 botaobuscar=Button(janela,image=lupaimgmenor,command=janeladebuscas)
-botaobuscar.grid(row=0,column=2)
+botaobuscar.grid(row=1,column=0)
+
+# Botão de remover um livro da biblioteca
+delimg=PhotoImage(file=r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\img\2012132.png")
+delimgmenor=delimg.subsample(4,4)
+dellivro=Button(janela,image=delimgmenor,command=deletar)
+dellivro.grid(row=1,column=1)
 
 janela.mainloop() # Mainloop

@@ -1,19 +1,20 @@
 from tkinter import *
 import csv
 
-with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8') as biblioteca:
-    leitor_csv=csv.reader(biblioteca)
+def lerbiblioteca():
+    with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8') as biblioteca:
+        leitor_csv=csv.reader(biblioteca)
+        bib=[]
+        for i in leitor_csv:
+            bib.append(i)
+    return (bib)
 
 def mostrar(texto,j,r,c): # Mostrar texto em determinado grid
     label=Label(j,text=texto)
     label.grid(row=r,column=c)
 
 def mostrarbiblioteca(): # Mostra a biblioteca inteira em uma nova janela
-    with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8') as biblioteca:
-        leitor_csv=csv.reader(biblioteca)
-        bib=[]
-        for i in leitor_csv:
-            bib.append(i)
+    bib=lerbiblioteca()
     novajanela=Tk()
     novajanela.title("Biblioteca")
     
@@ -33,9 +34,12 @@ def mostrarbiblioteca(): # Mostra a biblioteca inteira em uma nova janela
     novajanela.mainloop()
 
 def escrevercsv(texto):
-    with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", "a", newline='\n') as biblioteca:
+    bib=lerbiblioteca()
+    bib.append(texto)
+    print(bib)
+    with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8',mode="w",newline='') as biblioteca:
         escritor=csv.writer(biblioteca)
-        escritor.writerow(texto)
+        escritor.writerows(bib)
 
 def adicionar(): # Adiciona um novo livro com seus dados fornecidos por Entries
     janelaadd=Tk()

@@ -1,6 +1,6 @@
 from lib import *
 from tkinter import *
-from tkinter import ttk
+
 janela=Tk()
 janela.title("Biblioteca")
 

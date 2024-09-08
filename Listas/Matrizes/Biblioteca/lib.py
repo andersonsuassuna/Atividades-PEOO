@@ -7,7 +7,7 @@ def lerbiblioteca():
         bib=[]
         for i in leitor_csv:
             bib.append(i)
-    return (bib)
+    return(bib)
 
 def mostrar(texto,j,r,c): # Mostrar texto em determinado grid
     label=Label(j,text=texto)
@@ -36,7 +36,6 @@ def mostrarbiblioteca(): # Mostra a biblioteca inteira em uma nova janela
 def escrevercsv(texto):
     bib=lerbiblioteca()
     bib.append(texto)
-    print(bib)
     with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8',mode="w",newline='') as biblioteca:
         escritor=csv.writer(biblioteca)
         escritor.writerows(bib)
@@ -68,10 +67,11 @@ def adicionar(): # Adiciona um novo livro com seus dados fornecidos por Entries
     janelaadd.mainloop()
 
 def percorrermatriz(coluna,busca): # Anda por toda a matriz conferindo se a busca corresponde a algum item da biblioteca
+    bib=lerbiblioteca()
     x=[]
-    for i in range(len(biblioteca)):
-        if busca==biblioteca[i][coluna]:
-            x.append(biblioteca[i])
+    for i in range(len(bib)):
+        if busca==bib[i][coluna]:
+            x.append(bib[i])
     return(x)
 
 def pesquisa(coluna,busca): # Cria uma janela que mostra os resultados da busca
@@ -110,15 +110,15 @@ def janeladebuscas(): # Serve para o usuário escolher por qual valor (título, 
     buscasjanela.mainloop()
 
 def apagar(busca):
-    with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8') as biblioteca:
-        leitor_csv=csv.reader(biblioteca)
-        bib=[]
-        for i in leitor_csv:
-            bib.append(i)
+    bib=lerbiblioteca()
+    print(bib)
     for i in range(len(bib)):
         if busca==bib[i][0]:
-            biblioteca.drop(i)
+            del bib[i]
             break
+    with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8',mode="w",newline='') as biblioteca:
+        escritor=csv.writer(biblioteca)
+        escritor.writerows(bib)
 
 def deletar():
     remover=Tk()

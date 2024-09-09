@@ -1,5 +1,6 @@
 from tkinter import *
 import csv
+from tkinter.ttk import *
 
 def lerbiblioteca():
     with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8') as biblioteca:
@@ -18,19 +19,26 @@ def mostrarbiblioteca(): # Mostra a biblioteca inteira em uma nova janela
     novajanela=Tk()
     novajanela.title("Biblioteca")
     
-    titulos=Label(novajanela,text="Título")
+    titulos=Label(novajanela,text="Título",font='Helvetica 12 bold')
     titulos.grid(row=0, column=0)
     
-    autores=Label(novajanela,text="Autor")
+    autores=Label(novajanela,text="Autor",font='Helvetica 12 bold')
     autores.grid(row=0, column=1)
     
-    datas=Label(novajanela,text="Ano de publicação")
+    datas=Label(novajanela,text="Ano de publicação",font='Helvetica 12 bold')
     datas.grid(row=0, column=2)
+    
+    nada1=Label(novajanela,text="V",font='Helvetica 12 bold')
+    nada2=Label(novajanela,text="V",font='Helvetica 12 bold')
+    nada3=Label(novajanela,text="V",font='Helvetica 12 bold')
+    nada1.grid(row=1,column=0)
+    nada2.grid(row=1,column=1)
+    nada3.grid(row=1,column=2)
     
     for i in range(len(bib)): # Coloca todos os dados dos livros em linhas e colunas da nova janela
         for j in range(3):
             label=Label(novajanela,text=bib[i][j])
-            label.grid(row=i+1, column=j)
+            label.grid(row=i+2, column=j)
     novajanela.mainloop()
 
 def escrevercsv(texto):
@@ -134,3 +142,59 @@ def deletar():
         mostrar("Livro deletado!",remover,1,0)])
     botaodeletar.grid(row=1,column=1)
     remover.mainloop
+
+def acharlivro(busca):
+    bib=lerbiblioteca()
+    for i in range(len(bib)):
+        if busca==bib[i][0]:
+            return(i)
+
+def salvaredicoes(t,a,d,busca):
+    bib=lerbiblioteca()
+    indice=acharlivro(busca)
+    bib[indice][0]=t
+    bib[indice][1]=a
+    bib[indice][2]=d
+    with open(r"C:\Users\ander\OneDrive\Documentos\MeusProjetos\Atividades-PEOO\Listas\Matrizes\Biblioteca\biblioteca.csv", encoding='utf-8',mode="w",newline='') as biblioteca:
+        escritor=csv.writer(biblioteca)
+        escritor.writerows(bib)
+
+def edicao(busca): # Adiciona um novo livro com seus dados fornecidos por Entries
+    janelaadd=Tk()
+    
+    titulo=Label(janelaadd,text="Título: ")
+    tituloinput=Entry(janelaadd)
+    tituloinput.grid(row=0,column=1)
+    titulo.grid(row=0,column=0)
+    
+    autor=Label(janelaadd,text="Autor: ")
+    autorinput=Entry(janelaadd)
+    autorinput.grid(row=1,column=1)
+    autor.grid(row=1,column=0)
+    
+    data=Label(janelaadd,text="Ano de publicação: ")
+    datainput=Entry(janelaadd)
+    datainput.grid(row=2,column=1)
+    data.grid(row=2,column=0)
+    
+    
+    # Esse botão executa dois comandos: um para adicionar o livro na matriz e outro para mostrar na tela que o livro foi adicionado
+    salvar=Button(janelaadd,text="Salvar alterações",command=lambda: 
+        [salvaredicoes(tituloinput.get(),autorinput.get(),datainput.get(),busca),
+        mostrar("Alterações salvas!", janelaadd,3,0)])
+    salvar.grid(row=3,column=1)
+    janelaadd.mainloop()
+
+def editar():
+    janeladeeditar=Tk()
+    
+    digiteedit=Label(janeladeeditar,text="Título do livro: ")
+    digiteedit.grid(row=0,column=0)
+    
+    escrevaedit=Entry(janeladeeditar)
+    escrevaedit.grid(row=0,column=1)
+    
+    botaodeeditar=Button(janeladeeditar,text="Editar livro",command=lambda: edicao(escrevaedit.get()))
+    botaodeeditar.grid(row=1,column=1)
+    
+    janeladeeditar.mainloop()

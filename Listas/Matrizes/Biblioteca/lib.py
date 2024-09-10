@@ -117,9 +117,10 @@ def janeladebuscas(): # Serve para o usuário escolher por qual valor (título, 
     
     buscasjanela.mainloop()
 
+# Funções do botão de apagar abaixo
+
 def apagar(busca):
     bib=lerbiblioteca()
-    print(bib)
     for i in range(len(bib)):
         if busca==bib[i][0]:
             del bib[i]
@@ -142,6 +143,8 @@ def deletar():
         mostrar("Livro deletado!",remover,1,0)])
     botaodeletar.grid(row=1,column=1)
     remover.mainloop
+
+# Funções do botão de editar abaixo
 
 def acharlivro(busca):
     bib=lerbiblioteca()

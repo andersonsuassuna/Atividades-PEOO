@@ -74,6 +74,8 @@ def adicionar(): # Adiciona um novo livro com seus dados fornecidos por Entries
     salvar.grid(row=3,column=1)
     janelaadd.mainloop()
 
+# buscar
+
 def percorrermatriz(coluna,busca): # Anda por toda a matriz conferindo se a busca corresponde a algum item da biblioteca
     bib=lerbiblioteca()
     x=[]

@@ -1,9 +1,11 @@
+from datetime import date
 class Conta: # Aqui criamos a classe "Conta"
-    def __init__(self, numero, titular, saldo, limite): # Usamos o método construtor com atributos para dar esses atributos ao objeto
+    def __init__(self, numero, titular, saldo, limite, abertura): # Usamos o método construtor com atributos para dar esses atributos ao objeto
         self.numero = numero
         self.titular = titular
         self.saldo = saldo
         self.limite = limite
+        self.abertura = abertura # Questão 16: adicionei o atributo da data que a conta foi aberta
     
     def deposita(self, valor): # Serve para depositar um valor dado na conta destinada. o "self" é usado para localizar o próprio objeto
         self.saldo += valor

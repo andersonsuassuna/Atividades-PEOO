@@ -6,22 +6,40 @@ class Pessoa:
         self.altura=altura
     
     def envelhecer(self,anos):
-        self.idade+=anos
+        if anos<=0:
+            print("Coloque uma quantidade de anos maior que 0!")
+        else:
+            self.idade+=anos
 
     def rejuvenecer(self,anos):
-        self.idade-=anos
+        if anos>self.idade:
+            print("Coloque uma quantidade de anos menor do que sua idade!")
+        else:
+            self.idade-=anos
     
     def engordar(self,kg):
-        self.peso+=kg
+        if kg<0:
+            print("Coloque uma quantidade de kilos maior que 0!")
+        else:
+            self.peso+=kg
     
     def emagrecer(self,kg):
-        self.peso-=kg
+        if kg>self.peso:
+            print("Coloque uma quantidade de kilos menor do que seu peso!")
+        else:
+            self.peso-=kg
     
     def crescer(self,cm):
-        self.altura+=cm
+        if cm<0:
+            print("Coloque uma quantidade de cm maior que 0!")
+        else:
+            self.altura+=cm
     
     def diminuir(self,cm):
-        self.altura-=cm
+        if cm>self.altura:
+            print("Coloque uma quantidade de cm menor do que sua altura!")
+        else:
+            self.altura-=cm
 
 pessoa1=Pessoa("Anderson",17,60,178)
 pessoa1.crescer(22)

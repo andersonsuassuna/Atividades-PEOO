@@ -54,7 +54,7 @@ class Biblioteca:
         for i in self.livros:
             if i.titulo==titulo:
                 resultados.append(i)
-        print("Resultados da busca:")
+    
         for i in resultados:
             print(f"Título: {i.titulo}. Autor: {i.autor}. Ano: {i.ano_publicacao}.")
 

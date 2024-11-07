@@ -1,9 +1,11 @@
+# Etapa 1
 class Livro: # Aqui criamos a classe para os livros, dando título, autor e ano de publicação para eles
     def __init__(self,titulo,autor,ano_publicacao):
         self.titulo=titulo
         self.autor=autor
         self.ano_publicacao=ano_publicacao
 
+# Etapa 2
 # Livro 1 e Livro 2 criados
 livro1=Livro("O Pequeno Príncipe", "Antoine de Saint-Exupéry", 1943)
 livro2=Livro("O Senhor dos Anéis", "J.R.R. Tolkien", 1954)
@@ -26,6 +28,7 @@ print(f"Autor do novo livro: {novo_livro.autor}")
 print(f"id do livro1: {id(livro1)}")
 print(f"id do novo livro: {id(novo_livro)}")
 
+# Etapa 3
 # Criando função de mostrar os dados dos livros
 def imprime_livro(livro):
     print(f"Título: {livro.titulo}, Autor: {livro.autor}, Ano: {livro.ano_publicacao}")
@@ -35,6 +38,7 @@ funcaoimpressao=imprime_livro
 funcaoimpressao(livro1)
 print(type(funcaoimpressao))
 
+# Etapa 4
 # Criando a classe biblioteca
 class Biblioteca:
     def __init__(self, nome): # Método __init__ com nome da biblioteca e lista de livros nela
@@ -70,12 +74,14 @@ biblioteca.adicionar(livro2)
 biblioteca.listar()
 biblioteca.buscar("O Pequeno Príncipe")
 
+# Etapa 5
 # Verificando se os dados de um mesmo livro dentro ou fora da biblioteca são alterados simultaneamente
 biblioteca.livros[0].autor = "Autor Desconhecido"
 print(f"Autor de livro1: {livro1.autor}")
 print(f"ID de livro1: {id(livro1)}")
 print(f"ID de biblioteca.livros[0]: {id(biblioteca.livros[0])}")
 
+# Etapa 6
 # Criando novos livros e adicionando-os na biblioteca
 livro3=Livro("A Revolução dos Bichos", "George Orwell", 1945)
 livro4=Livro("Dom Quixote", "Miguel de Cervantes", 1605)

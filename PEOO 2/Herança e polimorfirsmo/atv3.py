@@ -11,8 +11,8 @@ class Conta:
     def atualiza(self, taxa):
         self._saldo += self._saldo * taxa
 
-
 c = Conta("1111","anderson",0,1000)
+# O site pede para criarmos a instância tendo criado o método "atualiza" abstrato logo depois da classe "Conta" inicial, fazendo ele ignorar a primeira classe criada. Isso é provado com o python printando "Conta() takes no arguments" no terminal.
 cc = Conta('123-4', 'João',500,1500)
 cp = Conta('123-5', 'José',1000,2000)
 

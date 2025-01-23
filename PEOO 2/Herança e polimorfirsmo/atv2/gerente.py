@@ -5,9 +5,9 @@ class Gerente(Funcionario):
         self._senha = senha
         self._qtd_gerenciaveis = qtd_gerenciaveis
     def get_bonificacao(self):
-        """
-        Implementar:
-        Deve retornar a bonificação do salário (10%) + 1000 reais.
-        Utilize super() para chamar o método da classe base.
-        """
-        pass
+        return super().get_bonificacao()+1000
+
+# testes
+# f1=Gerente("Anderson","70180308467",1000,"anderson123",1)
+# f1._salario=f1.get_bonificacao()+f1._salario
+# print(f1._salario)

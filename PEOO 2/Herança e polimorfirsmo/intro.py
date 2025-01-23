@@ -63,3 +63,4 @@ class Gerente(Funcionario):
         self._qtd_gerenciaveis = qtd_gerenciaveis
         def get_bonificacao():
             return super().get_bonificacao() + 1000
+

@@ -49,7 +49,7 @@ friend1=Friend("MaisLuan","maisluan@gmail.com", "40028922")
 friend1.phone
 
 class Funcionario:
-    def _init_(self, nome, cpf, salario):
+    def __init__(self, nome, cpf, salario):
         self._nome = nome
         self._cpf = cpf
         self._salario = salario
@@ -57,10 +57,12 @@ class Funcionario:
         return self.salario * 0.1
 
 class Gerente(Funcionario):
-    def _init_(self, nome, cpf, salario, senha, qtd_gerenciaveis): 
-        super().__init_(nome, cpf, salario)
+    def __init__(self, nome, cpf, salario, senha, qtd_gerenciaveis): 
+        super().__init__(nome, cpf, salario) # é como se eu abrisse uma classe dentro da classe
         self._senha = senha
         self._qtd_gerenciaveis = qtd_gerenciaveis
         def get_bonificacao():
             return super().get_bonificacao() + 1000
 
+a=Funcionario("Anderson","70180308467",1000)
+g=Gerente("Anderson","70180308467",1000,"andinho",1)

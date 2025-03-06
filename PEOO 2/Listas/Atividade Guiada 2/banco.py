@@ -30,6 +30,7 @@ class Banco:
         cls.__total_bancos = 0
 
 meu_banco=Banco("Banco Central")
+Banco.reset_total_bancos()
 # print(meu_banco.__nome) # Não é possível acessá-lo, pois o protegemos. Isso é usado para evitar mudanças no próprio.
 # Os dois underscores servem para o python reescrever o nome do atributo para evitar conflitos
 
